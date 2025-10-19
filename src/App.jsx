@@ -46,6 +46,14 @@ function App() {
       setCards(shuffle([...cards]));
     }
   };
+
+  return (
+    <div className="app">
+      <h1>Pokémon Memory Game</h1>
+      <Scoreboard score={score} bestScore={bestScore} />
+      <CardGrid cards={cards} onCardClick={handleCardClick} />
+    </div>
+  );
 }
 
 export default App;
