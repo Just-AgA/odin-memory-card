@@ -29,6 +29,23 @@ function App() {
 
     fetchPokemon();
   }, []);
+
+  const handleCardClick = (id) => {
+    if (clickedCards.includes(id)) {
+      // Game over
+      setScore(0);
+      setClickedCards([]);
+    } else {
+      const newScore = score + 1;
+      setScore(newScore);
+      setClickedCards([...clickedCards, id]);
+
+      if (newScore > bestScore) setBestScore(newScore);
+
+      // Shuffle cards after successful click
+      setCards(shuffle([...cards]));
+    }
+  };
 }
 
 export default App;
